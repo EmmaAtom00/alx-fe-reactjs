@@ -1,4 +1,4 @@
-import { UserContext } from "./context/UserContext";
+import { UserContext } from "./components/UserContext";
 import ProfilePage from "./ProfilePage";
 
 function App() {
