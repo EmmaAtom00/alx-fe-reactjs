@@ -1,6 +1,6 @@
 // AddRecipeForm component
 import { useState } from "react";
-import useRecipeStore from "../store/UseRecipeStore";
+import useRecipeStore from "./recipeStore";
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
@@ -32,7 +32,10 @@ const AddRecipeForm = () => {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       />
-      <button type="submit" className="bg-green-400 p-4 rounded-md text-white cursor-pointer hover:bg-green-500 transition">
+      <button
+        type="submit"
+        className="bg-green-400 p-4 rounded-md text-white cursor-pointer hover:bg-green-500 transition"
+      >
         Add Recipe
       </button>
     </form>
