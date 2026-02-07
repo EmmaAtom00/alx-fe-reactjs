@@ -16,7 +16,7 @@ const RecipeList = () => {
         <div
           key={recipe.id}
           className="border border-gray-200 rounded-2xl p-5 bg-gradient-to-r from-white to-blue-50 shadow-sm"
-          onClick={()=>viewRecipeDetails(recipe.id)}
+          onClick={() => viewRecipeDetails(recipe.id)}
         >
           <h3 className="text-lg font-semibold mb-2">
             Title:{" "}
