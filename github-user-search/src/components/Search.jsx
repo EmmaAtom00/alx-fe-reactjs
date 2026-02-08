@@ -40,7 +40,7 @@ const Search = () => {
       }
       setTotalCount(total_count);
     } catch (err) {
-      setError("No users found matching your criteria.");
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
