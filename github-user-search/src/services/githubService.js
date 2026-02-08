@@ -1,3 +1,4 @@
+// githubService.js
 import axios from "axios";
 
 const token = import.meta.env.VITE_APP_GITHUB_API_KEY;
@@ -14,9 +15,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  },
+  (error) => Promise.reject(error),
 );
 
 // Response interceptor
@@ -35,13 +34,25 @@ api.interceptors.response.use(
       console.error("No internet connection");
     }
 
-    // Always reject so calling code can handle it
     return Promise.reject(error);
   },
 );
 
-
-export const fetchUserData = async(username)=>{
+// Fetch single user by username
+export const searchUsers = async (username) => {
   const response = await api.get(`/users/${username}`);
-  return response
-}
+  return response;
+};
+
+// Advanced search: username, location, minRepos
+export const fetchUserData = async ({ username, location, minRepos }) => {
+  let query = "";
+  if (username) query += `${username} in:login `;
+  if (location) query += `location:${location} `;
+  if (minRepos) query += `repos:>=${minRepos} `;
+
+  const response = await api.get(
+    `/search/users?q=${encodeURIComponent(query)}&per_page=10`,
+  );
+  return response;
+};
