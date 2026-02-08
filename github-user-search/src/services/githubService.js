@@ -4,7 +4,7 @@ import axios from "axios";
 const token = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
 export const api = axios.create({
-  baseURL: "https://api.github.com/",
+  baseURL: "https://api.github.com/search/users?q=",
 });
 
 // Request interceptor
@@ -52,7 +52,7 @@ export const fetchUserData = async ({ username, location, minRepos }) => {
   if (minRepos) query += `repos:>=${minRepos} `;
 
   const response = await api.get(
-    `/search/users?q=${encodeURIComponent(query)}&per_page=10`,
+    `${encodeURIComponent(query)}&per_page=10`,
   );
   return response;
 };
