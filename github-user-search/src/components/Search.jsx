@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { api } from "../services/githubService";
+import { api, fetchUserData } from "../services/githubService";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -7,7 +7,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchUserData = async (e) => {
+  const fetchUser = async (e) => {
     e.preventDefault();
     setError("");
     setUserData(null);
@@ -19,7 +19,7 @@ const Search = () => {
 
     try {
       setLoading(true);
-      const response = await api.get(`/users/${username}`);
+      const response = await fetchUserData.get(`/users/${username}`);
       setUserData(response.data);
     } catch (err) {
       const message =
@@ -40,7 +40,7 @@ const Search = () => {
         </h1>
 
         {/* Search Form */}
-        <form onSubmit={fetchUserData} className="flex items-center gap-3">
+        <form onSubmit={fetchUser} className="flex items-center gap-3">
           {/* Input */}
           <input
             type="text"

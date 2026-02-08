@@ -2,12 +2,12 @@ import axios from "axios";
 
 const token = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
-export const api = axios.create({
+export const fetchUserData = axios.create({
   baseURL: "https://api.github.com/",
 });
 
 // Request interceptor
-api.interceptors.request.use(
+fetchUserData.interceptors.request.use(
   (config) => {
     if (token) {
       config.headers.Authorization = `token ${token}`;
@@ -20,7 +20,7 @@ api.interceptors.request.use(
 );
 
 // Response interceptor
-api.interceptors.response.use(
+fetchUserData.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
