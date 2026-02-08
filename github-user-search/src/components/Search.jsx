@@ -19,7 +19,7 @@ const Search = () => {
 
     try {
       setLoading(true);
-      const response = await fetchUserData.get(`/users/${username}`);
+      const response = await fetchUserData(username)
       setUserData(response.data);
     } catch (err) {
       const message =

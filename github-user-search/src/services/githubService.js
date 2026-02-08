@@ -2,12 +2,12 @@ import axios from "axios";
 
 const token = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
-export const fetchUserData = axios.create({
+export const api = axios.create({
   baseURL: "https://api.github.com/",
 });
 
 // Request interceptor
-fetchUserData.interceptors.request.use(
+api.interceptors.request.use(
   (config) => {
     if (token) {
       config.headers.Authorization = `token ${token}`;
@@ -20,7 +20,7 @@ fetchUserData.interceptors.request.use(
 );
 
 // Response interceptor
-fetchUserData.interceptors.response.use(
+api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
@@ -39,3 +39,9 @@ fetchUserData.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+
+export const fetchUserData = async(username)=>{
+  const response = await api.get(`/users/${username}`);
+  return response
+}
