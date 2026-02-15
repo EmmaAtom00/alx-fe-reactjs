@@ -10,7 +10,7 @@ const Homepage = () => {
   console.log(data);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 grid-cols-1">
       <h1 className="text-3xl font-bold mb-8 text-center">Delicious Recipes</h1>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((recipe) => (
