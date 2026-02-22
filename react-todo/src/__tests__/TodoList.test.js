@@ -26,7 +26,7 @@ describe('TodoList Component', () => {
     const todoItem = screen.getByText('Learn React');
     
     // Initial state: not completed
-    expect(todoItem).not.toHaveStyle('text-decoration: line-through');
+    expect(todoItem.parentElement).not.toHaveStyle('text-decoration: line-through');
 
     // Click to toggle
     fireEvent.click(todoItem);
