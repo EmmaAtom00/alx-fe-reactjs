@@ -42,6 +42,6 @@ npm test
 For a step-by-step guide on how to build and test this project from scratch, please refer to [LESSON.md](./LESSON.md).
 
 ## Project Structure
-- `src/TodoList.jsx`: Main logic and state management.
-- `src/AddTodoForm.jsx`: Component for adding new items.
+- `src/components/TodoList.jsx`: Main logic and state management.
+- `src/components/AddTodoForm.jsx`: Component for adding new items.
 - `src/__tests__/TodoList.test.js`: Unit tests for all core features.
