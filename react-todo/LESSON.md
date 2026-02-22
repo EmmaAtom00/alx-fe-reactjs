@@ -32,7 +32,7 @@ Open `package.json` and ensure the `test` script is set to use `jest`.
 ## Phase 2: Building the Components
 
 ### 1. Create the AddTodoForm Component
-Create `src/AddTodoForm.jsx`. This component handles the input field and submission.
+Create `src/components/AddTodoForm.jsx`. This component handles the input field and submission.
 ```jsx
 import React, { useState } from 'react';
 
@@ -63,7 +63,7 @@ export default AddTodoForm;
 ```
 
 ### 2. Create the TodoList Component
-Create `src/TodoList.jsx`. This is the core component managing the state and item logic.
+Create `src/components/TodoList.jsx`. This is the core component managing the state and item logic.
 ```jsx
 import React, { useState } from 'react';
 import AddTodoForm from './AddTodoForm';
